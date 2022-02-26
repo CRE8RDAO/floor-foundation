@@ -56,7 +56,7 @@ const { ethers } = require("ethers");
 const initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
-const DEBUG = false;
+const DEBUG = true;
 const NETWORKCHECK = true;
 const USE_BURNER_WALLET = true; // toggle burner wallet feature
 const USE_NETWORK_SELECTOR = false;
@@ -156,7 +156,6 @@ function App(props) {
   // If you want to bring in the mainnet DAI contract it would look like:
   const mainnetContracts = useContractLoader(mainnetProvider, contractConfig);
 
-  const localContracts = useContractLoader(localProvider, contractConfig);
   // If you want to call a function on a new block
   useOnBlock(mainnetProvider, () => {
     console.log(`⛓ A new mainnet block is here: ${mainnetProvider._lastBlockNumber}`);
@@ -166,13 +165,7 @@ function App(props) {
   const myMainnetDAIBalance = useContractReader(mainnetContracts, "DAI", "balanceOf", [
     "503828976d22510aad0201ac7ec88293211d23da",
   ]);
-  console.log("myMainnetDAIBalance");
-  console.log(myMainnetDAIBalance)
-  //TODO - make a request to the snowballx contracts
-  // 
-  const myFloor = useContractReader(localContracts, "Snowball", "MAXSNOW", []);
-  console.log("myFloor")
-  console.log(myFloor)
+  
   // keep track of a variable from the contract in the local React state:
   const purpose = useContractReader(readContracts, "YourContract", "purpose");
 
