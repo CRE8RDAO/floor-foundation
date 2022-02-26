@@ -84,11 +84,14 @@ export default function Contract({
         ? contract[contractFuncInfo[0]]
         : contract.connect(signer)[contractFuncInfo[0]];
     const show = ['mint()', 'balanceOf(address)', 'getpricecurrent', 'getredeemfloor', 'eturnCreatorNFTInfo(uint256)']
-    // for (let i = 0; i < show.length; i++) {
-    //   if (contractFuncInfo[1].name !== show[i] && contractFuncInfo[0] !== show[i] && show.length-1== i) {
-    //     return null
-    //   }
-    // }
+    for (let i = 0; i < show.length; i++) {
+      if (contractFuncInfo[1].name === show[i] || contractFuncInfo[0] === show[i]) {
+        break;
+      } 
+      if (show.length-1== i) {
+        return null
+      }
+    }
     
     if (typeof contractFunc === "function") {
       if (isQueryable(contractFuncInfo[1])) {
