@@ -20,7 +20,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   await deploy("YourContract", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
-    // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    args: [ "Snowballx", "JON", 1000, 10,ethers.utils.parseEther("0.2"),"0x7cACbc75d74740b50Dc68fBF0a573Af80243ca56", 1,ethers.utils.parseEther("0.1") ],
     log: true,
     waitConfirmations: 5,
   });
