@@ -167,7 +167,7 @@ function App(props) {
   ]);
   
   // keep track of a variable from the contract in the local React state:
-  const purpose = useContractReader(readContracts, "YourContract", "purpose");
+  const purpose = useContractReader(readContracts, "YourContract", "MAXSNOW");
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -263,14 +263,11 @@ function App(props) {
         <Menu.Item key="/debug">
           <Link to="/debug">Debug Contracts</Link>
         </Menu.Item>
-        <Menu.Item key="/hints">
-          <Link to="/hints">Hints</Link>
-        </Menu.Item>
-        <Menu.Item key="/exampleui">
-          <Link to="/exampleui">ExampleUI</Link>
-        </Menu.Item>
         <Menu.Item key="/mainnetdai">
           <Link to="/mainnetdai">Mainnet DAI</Link>
+        </Menu.Item>
+        <Menu.Item key="/rinkebysnow">
+          <Link to="/rinkebysnow">Rinkeby SNOW</Link>
         </Menu.Item>
         <Menu.Item key="/subgraph">
           <Link to="/subgraph">Subgraph</Link>
@@ -342,6 +339,18 @@ function App(props) {
               blockExplorer="https://etherscan.io/"
             />
             */}
+        </Route>
+        <Route path="/rinkebysnow">
+          <Contract
+            name="DAI"
+            customContract={mainnetContracts && mainnetContracts.contracts && mainnetContracts.contracts.DAI}
+            signer={userSigner}
+            provider={mainnetProvider}
+            address={address}
+            blockExplorer="https://etherscan.io/"
+            contractConfig={contractConfig}
+            chainId={1}
+          />
         </Route>
         <Route path="/subgraph">
           <Subgraph

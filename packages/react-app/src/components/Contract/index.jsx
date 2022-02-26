@@ -83,10 +83,17 @@ export default function Contract({
       contractFuncInfo[1].stateMutability === "view" || contractFuncInfo[1].stateMutability === "pure"
         ? contract[contractFuncInfo[0]]
         : contract.connect(signer)[contractFuncInfo[0]];
-
+    const show = ['mint()', 'balanceOf(address)', 'getpricecurrent', 'getredeemfloor', 'eturnCreatorNFTInfo(uint256)']
+    // for (let i = 0; i < show.length; i++) {
+    //   if (contractFuncInfo[1].name !== show[i] && contractFuncInfo[0] !== show[i] && show.length-1== i) {
+    //     return null
+    //   }
+    // }
+    
     if (typeof contractFunc === "function") {
       if (isQueryable(contractFuncInfo[1])) {
         // If there are no inputs, just display return value
+        console.log(contractFuncInfo[1].name)
         return (
           <DisplayVariable
             key={contractFuncInfo[1].name}
@@ -98,7 +105,7 @@ export default function Contract({
           />
         );
       }
-
+      console.log(contractFuncInfo[0])
       // If there are inputs, display a form to allow users to provide these
       return (
         <FunctionForm
