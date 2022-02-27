@@ -15,12 +15,10 @@ const addOptions = {
   pin: true,
   wrapWithDirectory: true
 };
-const debug = true
+
 const pushDirectoryToIPFS = async path => {
   try {
-    const file = ipfs.addAll(globSource(path, '**/*'), {
-      wrapWithDirectory: true
-    })
+    const file = ipfs.addAll(globSource(path, '**/*'), addOptions)
     let lastRes;
     for await (const f of file) {
       lastRes = f
