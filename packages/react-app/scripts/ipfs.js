@@ -1,4 +1,4 @@
-const {create, globSource, urlSource} = require("ipfs-http-client");
+const {create, globSource} = require("ipfs-http-client");
 const chalk = require("chalk");
 const { clearLine } = require("readline");
 
