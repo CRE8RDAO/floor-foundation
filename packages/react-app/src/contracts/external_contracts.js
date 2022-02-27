@@ -1717,7 +1717,7 @@ module.exports = {
         abi: ERC20ABI,
       },
       SNOW: {
-        address: "0x219e315D08F3F267F7e4B26bAd250FB505aB9848",
+        address: "0xfbb4ebfe4db4285414d371465a360619453600b3",
         abi: SNOWABI,
       },
     },

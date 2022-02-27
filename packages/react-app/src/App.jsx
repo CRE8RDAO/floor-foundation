@@ -53,7 +53,7 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-const initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const initialNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;
@@ -266,9 +266,6 @@ function App(props) {
         <Menu.Item key="/mainnetdai">
           <Link to="/mainnetdai">Mainnet DAI</Link>
         </Menu.Item>
-        <Menu.Item key="/rinkebysnow">
-          <Link to="/rinkebysnow">Rinkeby SNOW</Link>
-        </Menu.Item>
         <Menu.Item key="/subgraph">
           <Link to="/subgraph">Subgraph</Link>
         </Menu.Item>
@@ -342,14 +339,14 @@ function App(props) {
         </Route>
         <Route path="/rinkebysnow">
           <Contract
-            name="DAI"
-            customContract={mainnetContracts && mainnetContracts.contracts && mainnetContracts.contracts.DAI}
+            name="Rinkeby Snow"
+            customContract={writeContracts && writeContracts.contracts && writeContracts.contracts.SNOW}
             signer={userSigner}
-            provider={mainnetProvider}
+            provider={localProvider}
             address={address}
-            blockExplorer="https://etherscan.io/"
+            blockExplorer="https://rinkeby.etherscan.io/"
             contractConfig={contractConfig}
-            chainId={1}
+            chainId={4}
           />
         </Route>
         <Route path="/subgraph">

@@ -62,12 +62,12 @@ const main = async () => {
   */
 
   //If you want to verify your contract on tenderly.co (see setup details in the scaffold-eth README!)
-  /*
+  
   await tenderlyVerify(
     {contractName: "YourContract",
      contractAddress: yourContract.address
   })
-  */
+  
 
   console.log(
     " 💾  Artifacts (address, abi, and args) saved to: ",
